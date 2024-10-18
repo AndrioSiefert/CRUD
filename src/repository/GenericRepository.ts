@@ -10,12 +10,10 @@ class GenericRepository<T extends ObjectLiteral> {
     async getAll(): Promise<T[]> {
         return this.repository.find();
     }
-
-    async getById(id: number): Promise<T | undefined> {
-        const result = await this.repository.findOne({
+    async getById(id: number): Promise<T | null> {
+        return await this.repository.findOne({
             where: { id } as unknown as FindOptionsWhere<T>,
         });
-        return result || undefined;
     }
 
     async findOneByUser(user: string): Promise<T | null> {

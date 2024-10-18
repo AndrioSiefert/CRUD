@@ -18,16 +18,16 @@ class Controllers<T extends GenericRepository<any>> {
         }
     };
 
-    getById = async (req: Request, res: Response) => {
+    getById = async (req: Request, res: Response): Promise<void> => {
         const { id } = req.params;
         try {
             const entity = await this.repository.getById(Number(id));
 
             if (entity === null || entity === undefined) {
-                return res.status(404).json({ message: 'not found' });
+                res.status(404).json({ message: 'not found' });
             }
 
-            return res.status(200).json(entity);
+            res.status(200).json(entity);
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Internal server error' });
@@ -35,8 +35,8 @@ class Controllers<T extends GenericRepository<any>> {
     };
 
     create = async (req: Request, res: Response) => {
-        const dados = req.body;
         try {
+            const dados = req.body;
             await this.repository.create(dados);
             res.status(200).json(dados);
         } catch (error) {
