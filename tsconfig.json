@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "CommonJS",
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noEmitOnError": true,
+        "outDir": "./build",
+        "strict": true,
+        "strictNullChecks": true
+    },
+    "include": ["./src/**/*", "./server.ts"]
+}

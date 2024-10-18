@@ -1,0 +1,22 @@
+{
+    "name": "crud",
+    "version": "1.0.0",
+    "description": "crud",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "tsc-watch --onSuccess \"node build/server.js\"",
+        "clean-db": "rm -f ./src/config/database.sqlite"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0",
+        "cors": "^2.8.5",
+        "express": "^4.21.1",
+        "sqlite3": "^5.1.7",
+        "tsc-watch": "^6.2.0",
+        "typeorm": "^0.3.20"
+    }
+}
